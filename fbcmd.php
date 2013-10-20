@@ -191,7 +191,7 @@
   // your personal files: auth.txt, prefs.php, alias.php, etc...
 
   // Defaults: Windows:          %USERPROFILE%\fbcmd\ (c:\Users\YOURUSERNAME\fbcmd\)
-  // Defaults: Mac/Linux/Other:  $HOME/.fbcmd/        (~/.fbcmd/)
+  // Defaults: Mac/Linux/Other:  $HOME/.fbcmd/    (/usr/local/lib/fbcmd/.fbcmd/)
 
   $fbcmdBaseDir = getenv('FBCMD');
   if ($fbcmdBaseDir) {
@@ -199,12 +199,12 @@
   } else {
     if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
       if (getenv('USERPROFILE')) {
-        $fbcmdBaseDir = CleanPath(getenv('USERPROFILE')) . 'fbcmd/';
+        $fbcmdBaseDir ='fbcmd/';
       } else {
         $fbcmdBaseDir = 'c:/fbcmd/';
       }
     } else {
-      $fbcmdBaseDir = CleanPath(getenv('HOME')) . '.fbcmd/';
+      $fbcmdBaseDir = '/usr/local/lib/fbcmd/.fbcmd/';
     }
   }
 
